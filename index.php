@@ -15,15 +15,19 @@ include 'DB.php';
 // $cat1->eating();
 
 $db = new DB;
-// echo '<pre>';
+echo '<pre>';
+$data = [
+    'name' => 'Abcd',
+    'status' => 1
+];
+
+$db->create('category', $data);
+
+echo '</pre>';
+
+
 $cats = $db->query('category');
 
-
-// print_r($cats);
-
-// $eb->query('category'); //=> "SELECT * FROM category"
-// $eb->d
-// elete('category', 1); //=> "DELETE FROM category WERe id = 1"
 ?>
 <!DOCTYPE html>
 <html lang="en">
