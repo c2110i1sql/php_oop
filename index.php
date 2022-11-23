@@ -88,6 +88,30 @@ if (isset($_POST['name'])) {
             </tbody>
         </table>
         
+
+        <hr>
+        <h2>Sản phẩm</h2>
+
+        <div class="row">
+            <?php foreach($products as $pro) : ?>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="thumbnail">
+                    <img src="uploads/<?php echo $pro->image;?>" alt="">
+                    <div class="caption text-center">
+                        <h3>Title</h3>
+                        <p>
+                            ...
+                        </p>
+                        <p>
+                            <a href="cart-process.php?id=<?php echo $pro->id;?>" class="btn btn-primary btn-block">Đặt hàng</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <?php endforeach;?>
+            
+        </div>
     </div>
     
 </body>
