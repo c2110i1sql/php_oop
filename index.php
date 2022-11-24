@@ -1,9 +1,18 @@
 <?php 
-include 'DB.php';
-include 'Category.php';
-include 'Product.php';
+// include 'DB.php';
+// include 'Category.php';
+// include 'Product.php';
+include 'connectPDO.php';
+$sql = "SELECT * FROM category Order By id DESC";
+$stm = $conn->prepare($sql);
+$stm->execute();
+$cats = $stm->fetchAll();
 
-$products = Product::query();
+$sql = "SELECT * FROM product Order By id DESC";
+$stm = $conn->prepare($sql);
+$stm->execute();
+$products = $stm->fetchAll();
+// $products = Product::query();
 
 
 // $demo->
@@ -11,14 +20,14 @@ echo '<pre>';
 // print_r($products);
 echo '</pre>';
 
-$cats = Category::query();
+// $cats = Category::query();
 
 
-if (isset($_POST['name'])) {
-    if (Category::create('category',$_POST)) {
-        header('location: index.php');
-    }
-}
+// if (isset($_POST['name'])) {
+//     if (Category::create('category',$_POST)) {
+//         header('location: index.php');
+//     }
+// }
 
 ?>
 <!DOCTYPE html>
@@ -64,8 +73,6 @@ if (isset($_POST['name'])) {
                     </label>
                 </div>
             </div>
-        
-        
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         
